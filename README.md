@@ -1,0 +1,1 @@
+# Vlastni-Chat-Velitelsky-Terminal-vice-admiral-jirik-a-gemini-ai.cz
