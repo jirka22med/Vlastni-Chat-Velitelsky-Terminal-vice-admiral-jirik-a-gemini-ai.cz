@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Commander - Vice Admirál Jiřík</title>
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="multi-medialni-velikosti-obrazovek.css">
+     <link rel="stylesheet" href="vlastni-modularni-okno.css">
+</head>
+<body>
+    <header>
+        <div>USS PROMETHEUS /// AI COMMAND TERMINAL</div>
+        <div style="font-size: 0.8em; opacity: 0.8;">V.8.0 - FIREBASE AUTH</div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <!-- LOGIN BUTTON (Zobrazí se když NENÍ přihlášen) -->
+            <button id="login-btn" onclick="loginWithGoogle()" style="font-size: 0.7em; padding: 5px 15px; height: auto;">
+                🔐 PŘIHLÁSIT SE
+            </button>
+            
+            <!-- USER INFO (Zobrazí se když JE přihlášen) -->
+            <div id="user-info" style="display: none; align-items: center; gap: 8px;">
+                <img id="user-avatar" src="" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--lcars-orange);">
+                <span id="user-name" style="color: white; font-size: 0.8em;"></span>
+                <button id="logout-btn" onclick="logout()" style="font-size: 0.65em; padding: 3px 10px; background: var(--lcars-red);">
+                    🚪 ODHLÁSIT
+                </button>
+            </div>
+            
+            <button onclick="toggleCanvas()" style="font-size: 0.7em; padding: 5px; height: auto;">📝 CANVAS</button>
+            <button onclick="openApiKeyModal()" style="font-size: 0.7em; padding: 5px; height: auto; background: var(--lcars-purple);">🔐 SPRÁVA KLÍČŮ</button>
+        </div>
+    </header>
+
+    <div id="model-status"></div>
+
+    <div id="api-key-container">
+        <label style="color:white; display:block; margin-bottom:5px;">Vložte Google AI Studio API Key:</label>
+        <input type="password" id="api-key-input" style="width: 100%; padding: 5px;">
+        <button onclick="saveApiKey()" style="margin-top: 5px; width: 100%;">ULOŽIT</button>
+    </div>
+
+    <div id="chat-window">
+        <div class="message system">
+            🖖 VÍTEJTE, VICE ADMIRÁLE JIŘÍKU.<br>
+            Tento terminál je pod vaší přímou kontrolou.<br>
+            Vojenský řád je aktivní a má absolutní prioritu.
+        </div>
+    </div>
+
+    <div class="typing-indicator" id="typing-indicator">Gemini analyzuje data...</div>
+
+    <!-- CANVAS EDITOR -->
+    <div id="canvas-container">
+        <div id="canvas-header">
+            <div>⚡ CANVAS EDITOR</div>
+            <div style="display: flex; gap: 10px;">
+                <button id="edit-toggle" onclick="toggleEditMode()" style="padding: 3px 10px; font-size: 0.8em;">✏️ UPRAVIT</button>
+                <button onclick="sendCanvasToGemini()" style="padding: 3px 10px; font-size: 0.8em;">🤖 POŠLI GEMINI</button>
+                <button onclick="clearCanvas()" style="padding: 3px 10px; font-size: 0.8em;">🗑️ VYČISTIT</button>
+                <button onclick="copyCanvas()" style="padding: 3px 10px; font-size: 0.8em;">📋 KOPÍROVAT</button>
+                <button onclick="toggleCanvas()" style="padding: 3px 10px; font-size: 0.8em;">✕</button>
+            </div>
+        </div>
+        <div id="canvas-tabs">
+            <button class="canvas-tab active" onclick="switchCanvasTab('code')">KÓD</button>
+            <button class="canvas-tab" onclick="switchCanvasTab('preview')">PREVIEW</button>
+        </div>
+        <div id="canvas-editor" contenteditable="false"></div>
+        <iframe id="canvas-preview"></iframe>
+    </div>
+
+    <footer>
+        <input type="file" id="file-input" accept="image/*,application/pdf,video/*,audio/*,.html,.css,.js,.json,.txt,.md,.xml,.csv,.php,.py,.java,.cpp,.c,.h,.hpp,.ts,.tsx,.jsx,.yaml,.yml,.sql,.sh,.bat" multiple style="display:none;" onchange="handleFileSelect(event)">
+        <button onclick="document.getElementById('file-input').click()" style="padding: 0 15px;">📎 SOUBOR</button>
+        <textarea id="user-input" placeholder="Zadejte rozkaz, admirále..." onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(); }"></textarea>
+        <button onclick="sendMessage()">ODESLAT 🚀</button>
+    </footer>
+    
+    <div id="file-preview" style="padding: 10px 20px; background: #1a1a1a; border-top: 1px solid #333; display: none; flex-wrap: wrap; gap: 10px;"></div>
+
+<!--===================================- 
+        FIREBASE MODULY (TYPE MODULE!)
+<---===================================-->
+<script type="module" src="gemini-aplikace-firebase.js"></script>
+<script type="module" src="gemini-aplikace-google-login.js"></script>
+<script type="module" src="vlastni-modularni-okno.js"></script>
+
+<!--===================================- 
+        HLAVNÍ SYSTEM-PROMPT (VOJENSKÝ ŘÁD)
+<---===================================-->    
+<script src="system-prompt.js"></script>   
+
+<!--===================================- 
+        HLAVNÍ LOGIKA PRO AI APLIKACI
+<---===================================-->
+<script src="script.js"></script>   
+</body>
+</html>

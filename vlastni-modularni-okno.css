@@ -1,0 +1,312 @@
+/* ═══════════════════════════════════════════════════════════
+   🎨 MODÁLNÍ OKNO - API KEY MANAGER STYLES
+   Přidej tyto styly na KONEC tvého style.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────
+   MODÁLNÍ OVERLAY & CONTAINER
+   ───────────────────────────────────────────────────────── */
+#api-key-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #0a0f14 0%, #1a1a1a 100%);
+    border: 3px solid var(--lcars-orange);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(255, 153, 0, 0.5);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODAL HEADER
+   ───────────────────────────────────────────────────────── */
+.modal-header {
+    background: linear-gradient(90deg, var(--lcars-orange) 0%, var(--lcars-red) 100%);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--lcars-purple);
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-close {
+    background: var(--lcars-red);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: #ff0000;
+    transform: rotate(90deg);
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODAL BODY
+   ───────────────────────────────────────────────────────── */
+.modal-body {
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* ─────────────────────────────────────────────────────────
+   KEY INPUT SECTION
+   ───────────────────────────────────────────────────────── */
+.key-input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(0, 100, 200, 0.1);
+    border: 1px solid var(--lcars-blue);
+    border-radius: 8px;
+}
+
+.key-input-section input {
+    background: #000;
+    color: var(--text-color);
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.key-input-section input:focus {
+    outline: none;
+    border-color: var(--lcars-orange);
+}
+
+/* ─────────────────────────────────────────────────────────
+   KEYS LIST
+   ───────────────────────────────────────────────────────── */
+.keys-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+.loading-keys,
+.no-keys {
+    text-align: center;
+    color: var(--lcars-orange);
+    padding: 40px;
+    font-size: 1.2em;
+}
+
+.key-item {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    border-left: 4px solid var(--lcars-blue);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.2s;
+}
+
+.key-item:hover {
+    border-left-color: var(--lcars-orange);
+    background: rgba(255, 153, 0, 0.05);
+}
+
+.key-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.key-name {
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.key-status {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.key-status.status-active {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+.key-status.status-warning {
+    background: rgba(255, 200, 0, 0.2);
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+}
+
+.key-status.status-depleted {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.key-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.key-value {
+    flex: 1;
+    background: #000;
+    color: #00ff00;
+    border: 1px solid #333;
+    padding: 8px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.btn-show,
+.btn-edit,
+.btn-delete {
+    background: var(--lcars-blue);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1.1em;
+}
+
+.btn-show:hover {
+    background: var(--lcars-orange);
+}
+
+.btn-edit:hover {
+    background: var(--lcars-purple);
+}
+
+.btn-delete {
+    background: var(--lcars-red);
+}
+
+.btn-delete:hover {
+    background: #ff0000;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODAL FOOTER
+   ───────────────────────────────────────────────────────── */
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 2px solid var(--lcars-purple);
+}
+
+.modal-footer button {
+    flex: 1;
+    padding: 12px;
+    font-size: 0.95em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────
+   SCROLLBAR STYLING
+   ───────────────────────────────────────────────────────── */
+.modal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #0a0f14;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--lcars-orange);
+    border-radius: 5px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--lcars-red);
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE - MOBIL
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .key-input-section {
+        flex-direction: column;
+    }
+    
+    .key-input-section input {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .key-actions {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,710 @@
+/* ============================================
+   @MEDIA QUERIES - KOMPLETNÍ RESPONZIVNÍ DESIGN
+   USS PROMETHEUS AI COMMAND TERMINAL
+   Všechny velikosti: Mobil → 4K monitor
+   ============================================ */
+
+/* ───────────────────────────────────────────
+   4K MONITORY - 2560px a více
+   ─────────────────────────────────────────── */
+@media (min-width: 2560px) {
+    body {
+        font-size: 18px; /* Větší základní font */
+    }
+    
+    header {
+        padding: 15px 30px;
+        height: 50px;
+        font-size: 1.2em;
+    }
+    
+    #chat-window {
+        padding: 30px;
+        gap: 20px;
+    }
+    
+    .message {
+        padding: 20px;
+        font-size: 1.1em;
+        border-radius: 12px;
+    }
+    
+    textarea {
+        height: 70px;
+        font-size: 1.1em;
+        padding: 15px;
+    }
+    
+    button {
+        padding: 0 35px;
+        font-size: 1.1em;
+    }
+    
+    #canvas-container {
+        width: 55%; /* Širší canvas na velkých monitorech */
+    }
+    
+    #canvas-editor {
+        font-size: 18px;
+        padding: 25px;
+    }
+    
+    .code-block {
+        font-size: 1.05em;
+    }
+    
+    #model-status {
+        font-size: 1em;
+        padding: 8px 20px;
+    }
+}
+
+/* ───────────────────────────────────────────
+   FULL HD MONITORY - 1920px až 2559px
+   ─────────────────────────────────────────── */
+@media (min-width: 1920px) and (max-width: 2559px) {
+    body {
+        font-size: 16px;
+    }
+    
+    header {
+        padding: 12px 25px;
+        height: 45px;
+    }
+    
+    #chat-window {
+        padding: 25px;
+        gap: 18px;
+    }
+    
+    .message {
+        padding: 18px;
+        font-size: 1.05em;
+    }
+    
+    textarea {
+        height: 60px;
+        font-size: 1.05em;
+    }
+    
+    button {
+        padding: 0 30px;
+        font-size: 1.05em;
+    }
+    
+    #canvas-container {
+        width: 52%;
+    }
+    
+    #canvas-editor {
+        font-size: 16px;
+        padding: 20px;
+    }
+}
+
+/* ───────────────────────────────────────────
+   VELKÉ NOTEBOOKY/MONITORY - 1440px až 1919px
+   ─────────────────────────────────────────── */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    /* Výchozí styl je optimalizovaný pro tuto velikost */
+    /* Žádné změny nutné - baseline */
+    
+    #canvas-container {
+        width: 50%;
+    }
+    
+    .message {
+        max-width: 80%;
+    }
+}
+
+/* ───────────────────────────────────────────
+   STŘEDNÍ NOTEBOOKY - 1024px až 1439px
+   ─────────────────────────────────────────── */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    body {
+        font-size: 15px;
+    }
+    
+    header {
+        padding: 10px 20px;
+        height: 40px;
+    }
+    
+    #chat-window {
+        padding: 18px;
+        gap: 13px;
+    }
+    
+    .message {
+        max-width: 85%;
+        padding: 14px;
+        font-size: 0.98em;
+    }
+    
+    textarea {
+        height: 50px;
+        font-size: 0.95em;
+        padding: 10px;
+    }
+    
+    button {
+        padding: 0 22px;
+        font-size: 0.95em;
+    }
+    
+    #canvas-container {
+        width: 48%;
+    }
+    
+    #canvas-editor {
+        font-size: 14px;
+        padding: 15px;
+    }
+    
+    #canvas-header {
+        padding: 8px 15px;
+    }
+    
+    #canvas-header button {
+        font-size: 0.75em;
+        padding: 3px 10px;
+    }
+    
+    .code-block {
+        font-size: 0.92em;
+    }
+    
+    #model-status {
+        font-size: 0.8em;
+        padding: 5px 12px;
+    }
+}
+
+/* ───────────────────────────────────────────
+   MALÉ NOTEBOOKY - 768px až 1023px
+   ─────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        font-size: 14px;
+    }
+    
+    header {
+        padding: 8px 15px;
+        height: 38px;
+        font-size: 0.95em;
+    }
+    
+    header > div:nth-child(2) {
+        font-size: 0.75em;
+    }
+    
+    #chat-window {
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .message {
+        max-width: 88%;
+        padding: 13px;
+        font-size: 0.95em;
+    }
+    
+    textarea {
+        height: 48px;
+        font-size: 0.9em;
+        padding: 9px;
+    }
+    
+    button {
+        padding: 0 20px;
+        font-size: 0.9em;
+    }
+    
+    /* Canvas může být vertikálně nebo horizontálně podle preference */
+    #canvas-container {
+        width: 45%;
+    }
+    
+    #canvas-editor {
+        font-size: 13px;
+        padding: 12px;
+    }
+    
+    #canvas-header {
+        padding: 7px 12px;
+        font-size: 0.9em;
+    }
+    
+    .canvas-tab {
+        padding: 5px 12px;
+        font-size: 0.85em;
+    }
+    
+    .code-block {
+        font-size: 0.88em;
+    }
+    
+    .code-block-header {
+        flex-wrap: wrap;
+    }
+    
+    .copy-btn {
+        font-size: 0.75em;
+        padding: 3px 8px;
+    }
+    
+    #model-status {
+        font-size: 0.75em;
+        padding: 4px 10px;
+    }
+    
+    #api-key-container {
+        width: 85%;
+        right: 7.5%;
+    }
+}
+
+/* ───────────────────────────────────────────
+   TABLET (Portrait) - 481px až 767px
+   ─────────────────────────────────────────── */
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+    
+    header {
+        padding: 8px 12px;
+        font-size: 0.9em;
+        height: 35px;
+    }
+    
+    header > div:first-child {
+        font-size: 0.85em;
+    }
+    
+    header button {
+        font-size: 0.65em;
+        padding: 3px 8px;
+    }
+    
+    /* Canvas vertikálně pod chatem */
+    #canvas-container {
+        width: 100%;
+        height: 45vh;
+        top: auto;
+        bottom: 140px;
+        border-left: none;
+        border-top: 2px solid var(--lcars-orange);
+    }
+    
+    #chat-window {
+        width: 100% !important;
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .message {
+        max-width: 92%;
+        padding: 12px;
+        font-size: 0.92em;
+    }
+    
+    footer {
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    textarea {
+        height: 45px;
+        font-size: 0.88em;
+    }
+    
+    button {
+        padding: 0 18px;
+        font-size: 0.88em;
+    }
+    
+    #canvas-editor {
+        font-size: 13px;
+        padding: 12px;
+    }
+    
+    .code-block {
+        font-size: 0.85em;
+    }
+    
+    .code-block-header {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+}
+
+/* ───────────────────────────────────────────
+   MOBIL (Portrait) - 320px až 480px
+   ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    /* Header - kompaktní */
+    header {
+        padding: 5px 10px;
+        font-size: 0.75em;
+        height: 30px;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+    
+    header > div:first-child {
+        font-size: 0.7em;
+        width: 100%;
+    }
+    
+    header > div:nth-child(2) {
+        display: none; /* Skryj verzi */
+    }
+    
+    header button {
+        font-size: 0.55em;
+        padding: 2px 6px;
+    }
+    
+    /* Canvas - plná šířka */
+    #canvas-container {
+        width: 100%;
+        height: 55vh;
+        bottom: 120px;
+        border-left: none;
+        border-top: 2px solid var(--lcars-orange);
+    }
+    
+    #canvas-header {
+        padding: 6px 8px;
+        font-size: 0.8em;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    #canvas-header button {
+        font-size: 0.7em;
+        padding: 3px 8px;
+        width: 100%;
+    }
+    
+    #canvas-tabs {
+        padding: 3px 5px;
+    }
+    
+    .canvas-tab {
+        padding: 4px 10px;
+        font-size: 0.75em;
+    }
+    
+    #canvas-editor {
+        font-size: 12px;
+        padding: 10px;
+    }
+    
+    /* Chat */
+    #chat-window {
+        width: 100% !important;
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .message {
+        max-width: 95%;
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    
+    .message.system,
+    .message.success {
+        font-size: 0.75em;
+        padding: 8px;
+    }
+    
+    /* Footer - vertikální */
+    footer {
+        padding: 8px;
+        gap: 5px;
+        flex-direction: column;
+    }
+    
+    textarea {
+        width: 100%;
+        height: 60px;
+        font-size: 0.85em;
+        padding: 8px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.85em;
+    }
+    
+    footer > button:first-child {
+        order: -1; /* SOUBOR nahoru */
+    }
+    
+    /* API Key */
+    #api-key-container {
+        width: 95%;
+        right: 2.5%;
+        top: 35px;
+        padding: 12px;
+    }
+    
+    #api-key-container input {
+        font-size: 0.85em;
+        padding: 8px;
+    }
+    
+    #api-key-container button {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    
+    /* Model status - na spodek */
+    #model-status {
+        top: auto;
+        bottom: 130px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        text-align: center;
+        font-size: 0.65em;
+        padding: 3px 8px;
+    }
+    
+    /* File preview */
+    #file-preview {
+        padding: 5px 8px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+    
+    #file-preview > div {
+        flex-shrink: 0;
+        font-size: 0.8em;
+    }
+    
+    /* Code blocks */
+    .code-block {
+        font-size: 0.75em;
+        overflow-x: auto;
+    }
+    
+    .code-block pre {
+        white-space: pre;
+        overflow-x: auto;
+    }
+    
+    .code-block-header {
+        gap: 3px;
+    }
+    
+    .copy-btn {
+        font-size: 0.7em;
+        padding: 2px 6px;
+    }
+    
+    .typing-indicator {
+        font-size: 0.75em;
+        margin-left: 8px;
+    }
+}
+
+/* ───────────────────────────────────────────
+   EXTRA MALÉ MOBILY - 320px a méně
+   ─────────────────────────────────────────── */
+@media (max-width: 320px) {
+    body {
+        font-size: 12px;
+    }
+    
+    header {
+        font-size: 0.65em;
+        padding: 3px 5px;
+        height: 25px;
+    }
+    
+    header > div:first-child {
+        font-size: 0.6em;
+    }
+    
+    #chat-window {
+        padding: 8px;
+        gap: 6px;
+    }
+    
+    .message {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+    
+    footer {
+        padding: 5px;
+    }
+    
+    textarea {
+        font-size: 0.8em;
+        padding: 6px;
+        height: 55px;
+    }
+    
+    button {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+    
+    #canvas-editor {
+        font-size: 11px;
+        padding: 8px;
+    }
+    
+    #canvas-header button {
+        font-size: 0.65em;
+        padding: 2px 6px;
+    }
+}
+
+/* ───────────────────────────────────────────
+   LANDSCAPE REŽIM - Široké ale nízké obrazovky
+   ─────────────────────────────────────────── */
+@media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+    header {
+        padding: 3px 10px;
+        height: 25px;
+        font-size: 0.7em;
+    }
+    
+    #chat-window {
+        padding: 8px;
+    }
+    
+    .message {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+    
+    footer {
+        padding: 6px;
+        flex-direction: row;
+    }
+    
+    textarea {
+        height: 35px;
+        font-size: 0.8em;
+    }
+    
+    button {
+        padding: 0 12px;
+        font-size: 0.8em;
+    }
+    
+    #canvas-container {
+        height: 35vh;
+    }
+    
+    #model-status {
+        display: none;
+    }
+}
+
+/* ───────────────────────────────────────────
+   VELMI VYSOKÉ OBRAZOVKY - Portrait monitory
+   ─────────────────────────────────────────── */
+@media (min-height: 1200px) and (orientation: portrait) {
+    #chat-window {
+        padding: 30px;
+        gap: 20px;
+    }
+    
+    .message {
+        padding: 18px;
+    }
+    
+    #canvas-container {
+        height: 60vh; /* Více prostoru pro canvas */
+    }
+}
+
+/* ───────────────────────────────────────────
+   ULTRA ŠIROKÉ MONITORY - 21:9 a více
+   ─────────────────────────────────────────── */
+@media (min-width: 2560px) and (min-aspect-ratio: 21/9) {
+    #canvas-container {
+        width: 60%; /* Ještě širší canvas */
+    }
+    
+    #chat-window {
+        padding: 35px;
+    }
+    
+    .message {
+        max-width: 75%; /* Užší zprávy na ultra wide */
+    }
+}
+
+/* ───────────────────────────────────────────
+   TISK
+   ─────────────────────────────────────────── */
+@media print {
+    header,
+    footer,
+    #api-key-container,
+    #model-status,
+    #file-preview,
+    #canvas-container,
+    .typing-indicator,
+    button {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    #chat-window {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        background: white;
+        color: black;
+    }
+    
+    .message {
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+        max-width: 100%;
+    }
+    
+    .message.user {
+        background: #f5f5f5;
+        border-right: 3px solid #666;
+    }
+    
+    .message.ai {
+        background: white;
+        border-left: 3px solid #999;
+    }
+    
+    .code-block {
+        page-break-inside: avoid;
+        border: 1px solid #ddd;
+        background: #f9f9f9;
+    }
+}
+
+/* ───────────────────────────────────────────
+   DARK MODE PREFERENCE
+   ─────────────────────────────────────────── */
+@media (prefers-color-scheme: light) {
+    /* Star Trek styl je primárně tmavý,
+       ale můžeš přidat světlý režim zde pokud chceš */
+}

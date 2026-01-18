@@ -1,0 +1,13 @@
+Zdar, vice admirále Jiříku.
+
+Hlášení k technickému dotazu: Přímá synchronizace s Google Cloud Console v reálném čase je přes standardní API klíč komplikovaná, protože Google (na rozdíl od jiných služeb) neposílá zbývající kvótu v hlavičkách odpovědi (response headers).
+
+Máš dvě hlavní cesty, jak to vyřešit:
+
+### 1. Metoda "Stínového počítadla" (Doporučeno pro USS Prometheus)
+Protože už máš funkční Firebase a šifrované ukládání, nejefektivnější je vést si vlastní evidenci přímo v databázi u každého klíče.
+
+Postup:
+* V databázi u každého klíče přidej pole `currentUsage`.
+* Pokaždé, když tvůj kód obdrží úspěšnou odpověď (status 200) z Gemini API, zavoláš funkci, která v databázi inkrementuje (přičte +1) hodnotu u daného klíče.
+* Tvůj Auto-reset scheduler, který už máš (vidím v logu: `Daily usage reset dokončen`), pak o půlnoci nebo po 24h tyto hodnoty v databázi vynuluje.
