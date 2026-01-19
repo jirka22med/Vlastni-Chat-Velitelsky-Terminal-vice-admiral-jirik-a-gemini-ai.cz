@@ -5,10 +5,10 @@
 // SEZNAM MODELŮ - OVĚŘENO 16.1.2026 podle oficiální dokumentace
 const MODELS_TO_TRY = [
     "gemini-3-flash-preview",         // ✅ POTVRZENO: Spuštěno 12.1.2026
-    "gemini-3-pro-preview",           // ✅ POTVRZENO: Nejnovější Pro verze
+    //"gemini-3-pro-preview",           // ✅ POTVRZENO: Nejnovější Pro verze
     "gemini-2.5-flash",               // Stabilní Flash
-    "gemini-2.5-pro",                 // Stabilní Pro
-    "gemini-2.0-flash-exp"            // Záložní experimentální
+    //"gemini-2.5-pro",                 // Stabilní Pro
+    //"gemini-2.0-flash-exp"            // Záložní experimentální
 ];  
 
 // 🔑 API KEYS - NYNÍ NAČÍTANÉ Z FIREBASE
@@ -675,4 +675,5 @@ async function updateKeyUsageInCloud() {
     } finally {
         document.getElementById('typing-indicator').style.display = 'none';
     }
+
 }
